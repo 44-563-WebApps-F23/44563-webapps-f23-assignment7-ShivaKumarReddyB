@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Reaction Based on setTimeout</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h2><i>Shiva Kumar Reddy Bakkannagari -Speed Check</i></h2>
+
+    <div id="target">Your time</div>
+    <div id="Counter">Count</div>
+
+    <button type="button" class="btn btn-primary" onclick="buttonPress2()">
+      Start Timer
+    </button>
+    <button type="button" class="btn btn-primary" onclick="recordTime()">
+      React
+    </button>
+
+    <!-- <p id="target">I will become red</p> -->
+
+    <script>
+      let reactTime;
+      const recordTime = () => {
+        reactTime = Date.now();
+        console.log(reactTime);
+      };
+      function buttonPress1() {
+        setTimeout(function () {
+          document.getElementById("target").style.color = "red";
+        }, 3000);
+      }
+
+      function buttonPress2() {
+        setTimeout(() => {
+          document.getElementById("target").style.color = "red";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
