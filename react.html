@@ -16,9 +16,9 @@
     <h2><i>Shiva Kumar Reddy Bakkannagari -Speed Check</i></h2>
 
     <div id="target">Your time</div>
-    <div id="Counter">Count</div>
+    <div id="counter">Count</div>
 
-    <button type="button" class="btn btn-primary" onclick="buttonPress2()">
+    <button type="button" class="btn btn-primary" onclick="startTime()">
       Start Timer
     </button>
     <button type="button" class="btn btn-primary" onclick="recordTime()">
@@ -29,21 +29,28 @@
 
     <script>
       let reactTime;
+      const targetElement = document.getElementById("target");
       const recordTime = () => {
         reactTime = Date.now();
         console.log(reactTime);
       };
-      function buttonPress1() {
-        setTimeout(function () {
-          document.getElementById("target").style.color = "red";
-        }, 3000);
-      }
 
-      function buttonPress2() {
+      const startTime = () => {
+        for (let index = 0; index < 9; index++) {
+          setTimeout(() => {
+            document.getElementById("counter").innerHTML = `Count : ${index}`;
+          }, (8 - index) * 1000);
+        }
         setTimeout(() => {
-          document.getElementById("target").style.color = "red";
-        }, 3000);
-      }
+          if (!reactTime) {
+            targetElement.innerHTML = "Too Slow";
+          } else {
+            let endTime = Date.now();
+            let elapsed = endTime - reactTime;
+            targetElement.innerHTML = `Time was ${elapsed}ms`;
+          }
+        }, 8000);
+      };
     </script>
   </body>
 </html>
