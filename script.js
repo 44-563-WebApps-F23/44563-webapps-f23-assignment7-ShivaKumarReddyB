@@ -1,4 +1,4 @@
-let id = [];
+let ids = [];
 let checkCount = 0;
 let penalty = 0;
 let lastCheck = 0;
@@ -8,10 +8,14 @@ let gameOver = false;
 
 const penaltyElement = document.getElementById("penalty");
 
+for (let i = 0; i < 25; i++) {
+  ids.push(`card-${i}`);
+}
+
 //step 11
 const check = (position) => {
   if (!gameOver) {
-    const cardElement = document.getElementById(`card-${position}`);
+    const cardElement = document.getElementById(ids[position]);
     // change src
     if (position === treasureLocation) {
       cardElement.src = "treasure.jpg";
