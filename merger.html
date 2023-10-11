@@ -45,6 +45,8 @@
       the container.
     </p>
     <button onclick="makeNewDiv()">Add end</button>
+    <button onclick="addFront()">Add front</button>
+    <button onclick="remove()">Remove</button>
   </body>
   <script>
     function makeNewDiv() {
@@ -58,5 +60,27 @@
       let container = document.getElementById("target");
       container.appendChild(element);
     }
+
+    const remove = () => {
+      let mergerItems = document.getElementsByClassName("merger");
+      const lengthOfItems = mergerItems.length;
+      let middleIdx = Math.floor(lengthOfItems / 2);
+
+      if (lengthOfItems > 0) {
+        mergerItems[middleIdx].remove();
+      }
+    };
+
+    const addFront = () => {
+      const value = document.getElementById("inputText").value;
+      /* make the div and its text */
+      let element = document.createElement("div");
+      element.innerHTML = value;
+      element.className = "merger";
+
+      /* add it to the container */
+      let container = document.getElementById("target");
+      container.insertBefore(element, container.firstChild);
+    };
   </script>
 </html>
