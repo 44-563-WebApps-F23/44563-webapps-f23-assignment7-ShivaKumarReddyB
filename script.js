@@ -2,9 +2,14 @@ let ids = [];
 let checkCount = 0;
 let penalty = 0;
 let lastCheck = 0;
-let treasureLocation = 5;
-let trapLocation = 18;
 let gameOver = false;
+
+bonus;
+let trapLocation = Math.floor(Math.random() * 25);
+let treasureLocation;
+do {
+  treasureLocation = Math.floor(Math.random() * 25);
+} while (treasureLocation === trapLocation);
 
 const penaltyElement = document.getElementById("penalty");
 
@@ -59,4 +64,21 @@ const help = () => {
   }
   document.getElementById("help").textContent = `Help report: ${helpText}`;
   penaltyElement.textContent = `Penalty is ${penalty}`;
+};
+
+const reset = () => {
+  checkCount = 0;
+  penalty = 0;
+  lastCheck = 0;
+  gameOver = false;
+
+  trapLocation = Math.floor(Math.random() * 25);
+  treasureLocation = Math.floor(Math.random() * 25);
+  while (trapLocation === treasureLocation) {
+    treasureLocation = Math.floor(Math.random() * 25);
+  }
+  document.getElementById("location").textContent =
+    "Number of location checked is zero";
+  penaltyElement.textContent = "Penalty is zero";
+  document.getElementById("help").textContent = "Help report";
 };

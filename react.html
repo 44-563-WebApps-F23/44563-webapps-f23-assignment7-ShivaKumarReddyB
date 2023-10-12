@@ -36,10 +36,13 @@
       };
 
       const startTime = () => {
-        for (let index = 0; index < 9; index++) {
+        // bonus
+        let randomCountDown = Math.round(Math.random() * (10 - 2) + 2);
+
+        for (let index = 0; index < randomCountDown; index++) {
           setTimeout(() => {
             document.getElementById("counter").innerHTML = `Count : ${index}`;
-          }, (8 - index) * 1000);
+          }, (randomCountDown - index) * 1000);
         }
         setTimeout(() => {
           if (!reactTime) {

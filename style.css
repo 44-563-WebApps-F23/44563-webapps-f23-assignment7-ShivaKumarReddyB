@@ -33,3 +33,7 @@ img {
 .instructions :hover {
   color: rgb(228, 228, 138);
 }
+
+button {
+  background-color: blue;
+}

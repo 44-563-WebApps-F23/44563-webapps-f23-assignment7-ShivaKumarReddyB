@@ -47,6 +47,7 @@
     <button onclick="makeNewDiv()">Add end</button>
     <button onclick="addFront()">Add front</button>
     <button onclick="remove()">Remove</button>
+    <button onclick="swapElements()">Swap</button>
   </body>
   <script>
     function makeNewDiv() {
@@ -81,6 +82,25 @@
       /* add it to the container */
       let container = document.getElementById("target");
       container.insertBefore(element, container.firstChild);
+    };
+
+    const swapElements = () => {
+      let mergerItems = document.getElementsByClassName("merger");
+      let length = mergerItems.length;
+
+      if (length >= 2) {
+        let index1 = Math.floor(Math.random() * length);
+        let index2 = Math.floor(Math.random() * length);
+
+        // Ensure distinct indices
+        while (index2 === index1) {
+          index2 = Math.floor(Math.random() * length);
+        }
+
+        let temp = mergerItems[index1].cloneNode(true);
+        mergerItems[index1].replaceWith(mergerItems[index2].cloneNode(true));
+        mergerItems[index2].replaceWith(temp);
+      }
     };
   </script>
 </html>
