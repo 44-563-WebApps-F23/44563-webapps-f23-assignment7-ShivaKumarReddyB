@@ -4,7 +4,7 @@ let penalty = 0;
 let lastCheck = 0;
 let gameOver = false;
 
-bonus;
+// bonus;
 let trapLocation = Math.floor(Math.random() * 25);
 let treasureLocation;
 do {
